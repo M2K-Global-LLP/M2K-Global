@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-01T06:31:17.800Z",
+  "profile": "Lighthouse default mobile simulated throttling; gzip-enabled static preview, one local run per route; project is a temporary editorial fixture",
+  "results": [
+    {
+      "route": "/",
+      "scores": {
+        "performance": 94,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 2473.9960000000005,
+        "largest-contentful-paint": 2473.9960000000005,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "total-byte-weight": 196981
+      },
+      "unusedJsBytes": 63739
+    },
+    {
+      "route": "/tender-saar",
+      "scores": {
+        "performance": 97,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 2169.3401000000003,
+        "largest-contentful-paint": 2169.3401000000003,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "total-byte-weight": 164530
+      },
+      "unusedJsBytes": 63764
+    },
+    {
+      "route": "/services/social-impact",
+      "scores": {
+        "performance": 97,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 2167.1324,
+        "largest-contentful-paint": 2167.1324,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "total-byte-weight": 161956
+      },
+      "unusedJsBytes": 64227
+    },
+    {
+      "route": "/projects/mine-closure-social-impact",
+      "scores": {
+        "performance": 95,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 2323.4352,
+        "largest-contentful-paint": 2323.4352,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "total-byte-weight": 193547
+      },
+      "unusedJsBytes": 92939
+    }
+  ]
+}

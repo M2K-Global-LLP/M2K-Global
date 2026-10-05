@@ -1,0 +1,35 @@
+export const tenderSaar = {
+  title: "Tender Saar", tagline: "Find the Right Tenders. Understand Them Faster. Bid Smarter.",
+  summary: "Bring tender discovery, clearer understanding and expert guidance into one considered workflow.",
+  overview: "Tender Saar is a product concept for businesses that need context around a tender opportunity: what it involves, what to check and what the next decision requires.",
+  features: [
+    { id: "discovery", title: "Relevant tender discovery", description: "Frame your search around the business profile, sector and locations that matter to you.", icon: "Search" },
+    { id: "understanding", title: "Clearer tender summaries", description: "Bring scope, eligibility and key dates into a structured view for review.", icon: "FileText" },
+    { id: "source", title: "Official source access", description: "Return to the original notice and documents to verify complete requirements.", icon: "ExternalLink" },
+    { id: "decision", title: "Bid/no-bid guidance", description: "Consider eligibility, resources, commitments and fit before deciding to proceed.", icon: "ListChecks" },
+    { id: "documentation", title: "Documentation support", description: "Organize the information and questions needed for a considered response.", icon: "FolderCheck" },
+    { id: "expert", title: "A route to expert support", description: "Discuss requirements that need interpretation or specialist guidance.", icon: "MessagesSquare" },
+  ],
+  workflow: [
+    { title: "Business Profile", description: "Start with your capabilities and context." },
+    { title: "Relevant Tenders", description: "Frame the opportunities worth a closer look." },
+    { title: "Tender Understanding", description: "Review scope, eligibility and requirements." },
+    { title: "Bid/No-Bid Decision Support", description: "Consider fit, capacity and commitments." },
+    { title: "Documentation & Expert Guidance", description: "Plan the next steps with the right support." },
+  ],
+  pricing: { status: "unconfirmed", introduction: "Plans to be announced. Tell us what you need from Tender Saar and we will share confirmed availability and pricing when ready.", plans: [] },
+  faqIds: ["tender-saar-access", "tender-saar-sample", "tender-saar-pricing", "official-notice", "tender-decisions"],
+  seo: { title: "Tender Saar — Tender Discovery & Guidance | M2K Global", description: "Explore Tender Saar's approach to tender discovery, understanding, official source access and bid/no-bid decision support. View an illustrative product preview." },
+};
+export const tenderSamples = [
+  { id: "sample-infrastructure", title: "Infrastructure planning support", category: "Infrastructure",
+    department: "Sample public works department", deadline: "30 Nov 2026 · sample", location: "Illustrative region",
+    value: "₹25 lakh · sample", summary: "Illustrative scope for reviewing a proposed infrastructure programme and preparing planning documentation.",
+    guidance: "Check the required experience, team capacity and document schedule before deciding.",
+    sourceUrl: "https://eprocure.gov.in/eprocure/app" },
+  { id: "sample-training", title: "Workplace skills programme", category: "Training",
+    department: "Sample training institution", deadline: "15 Dec 2026 · sample", location: "Illustrative district",
+    value: "₹12 lakh · sample", summary: "Illustrative scope for planning and coordinating a practical workplace skills programme.",
+    guidance: "Review trainer availability, learner needs and assessment requirements against the official scope.",
+    sourceUrl: "https://eprocure.gov.in/eprocure/app" },
+];

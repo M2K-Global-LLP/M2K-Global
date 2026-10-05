@@ -1,0 +1,30 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "types": [
+      "node",
+      "vite/client"
+    ]
+  },
+  "include": [
+    "client/src",
+    "client/scripts",
+    "client/tests",
+    "client/*.ts",
+    "server/src",
+    "server/tests",
+    "packages/contracts/src",
+    "packages/contracts/tests",
+    "server/scripts"
+  ]
+}

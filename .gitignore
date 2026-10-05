@@ -1,0 +1,13 @@
+node_modules/
+**/dist/
+**/.react-router/
+**/src/generated/
+.env
+.env.*
+!.env.example
+server/var/
+*.log
+*.tsbuildinfo
+
+test-results/
+playwright-report/

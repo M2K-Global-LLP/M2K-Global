@@ -1,0 +1,41 @@
+import type { Project } from "../schemas/content.schema.js";
+// Editorial outlines only. Verify the scope and obtain permission before changing approved.
+export const projects: Project[] = [
+  {
+    slug: "mine-closure-social-impact", title: "Social Impact Assessment for Mine Closure", approved: false,
+    summary: "An editorial outline for examining community and livelihood considerations associated with a mine-closure context.",
+    serviceSlugs: ["social-impact"], industryId: "mining",
+    overview: "A generic project outline for a social impact assessment in a mine-closure context. Specific engagement details are withheld pending verification and permission.",
+    challenge: "Understanding how a proposed change in mining activity may affect local stakeholders, services and livelihoods.",
+    scope: ["Stakeholder and context mapping", "Assessment framework and consultation planning", "Documentation of issues for further review"],
+    approach: ["Review the available context and agreed assessment questions", "Plan engagement with relevant stakeholders", "Organize findings and limitations for discussion"],
+    servicesDelivered: ["Assessment scoping", "Consultation planning", "Reporting framework"],
+    methodology: "The proposed methodology combines a review of available information with a documented stakeholder-engagement plan. Any data collection method must be agreed for the actual engagement.",
+    sections: [], outcomesApproved: false,
+    seo: { title: "Mine Closure Social Impact Assessment | M2K Global", description: "A project outline for understanding social considerations around mine closure, subject to verification and publication permission." },
+  },
+  {
+    slug: "tender-saar-product-delivery", title: "Tender Saar", approved: false,
+    summary: "An editorial outline for the managed delivery of a tender discovery and decision-support product.",
+    serviceSlugs: ["it-product-delivery", "tender-advisory"], industryId: "consulting",
+    overview: "An outline of the product-delivery approach for Tender Saar, connecting business requirements with technology-partner coordination.",
+    challenge: "Bringing tender discovery, document understanding and a route to guidance into a coherent product experience.",
+    scope: ["Product requirements and workflow definition", "Technology-partner coordination", "Review and handover planning"],
+    approach: ["Understand intended users and decision points", "Define a delivery scope with partner responsibilities", "Review the experience against agreed requirements"],
+    servicesDelivered: ["Product scoping", "Managed delivery coordination", "Tender-domain input"],
+    sections: [], outcomesApproved: false,
+    seo: { title: "Tender Saar Product Delivery | M2K Global", description: "A managed-delivery project outline for Tender Saar, pending approval of details for public sharing." },
+  },
+  {
+    slug: "skill-development-programs", title: "Skill Development Programs", approved: false,
+    summary: "An editorial outline for planning practical learning programmes around agreed learner and organizational needs.",
+    serviceSlugs: ["skill-development", "language-training"], industryId: "skills",
+    overview: "A generic programme outline connecting learning needs, practical activities and feedback. No specific institution or learner outcome is represented.",
+    challenge: "Turning a broad capability need into a structured, context-appropriate learning plan.",
+    scope: ["Learning-needs discussion", "Programme objectives and activity planning", "Delivery coordination and feedback design"],
+    approach: ["Identify the learner context and priorities", "Agree objectives, format and responsibilities", "Plan practical activities and review points"],
+    servicesDelivered: ["Programme scoping", "Learning-plan coordination", "Feedback framework"],
+    sections: [], outcomesApproved: false,
+    seo: { title: "Skill Development Programme Outline | M2K Global", description: "An outline of skill-development programme planning and coordination, awaiting publication approval." },
+  },
+];

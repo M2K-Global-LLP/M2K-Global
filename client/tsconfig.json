@@ -1,0 +1,30 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "types": [
+      "node",
+      "vite/client"
+    ],
+    "rootDirs": [
+      ".",
+      ".react-router/types"
+    ]
+  },
+  "include": [
+    "src",
+    "scripts",
+    "tests",
+    "*.ts",
+    ".react-router/types/**/*"
+  ]
+}

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="500" viewBox="0 0 560 500" fill="none">
+  <defs>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#0F766E" fill-opacity=".22"/></pattern>
+  </defs>
+  <rect x="16" y="18" width="528" height="464" fill="#F8FAFC"/>
+  <rect x="16" y="18" width="528" height="464" fill="url(#dots)"/>
+  <path d="M86 338C152 338 164 236 231 236C286 236 293 312 348 312C405 312 412 157 478 157" stroke="#102A43" stroke-width="2"/>
+  <path d="M86 364C170 364 186 276 240 276C296 276 308 342 360 342C422 342 432 197 478 197" stroke="#0F766E" stroke-opacity=".65" stroke-width="1.5"/>
+  <path d="M84 102V74H112M448 74H476V102M84 398V426H112M448 426H476V398" stroke="#102A43" stroke-opacity=".58" stroke-width="1.5"/>
+  <circle cx="86" cy="338" r="7" fill="#F8FAFC" stroke="#0F766E" stroke-width="3"/>
+  <circle cx="231" cy="236" r="7" fill="#F8FAFC" stroke="#0F766E" stroke-width="3"/>
+  <circle cx="348" cy="312" r="7" fill="#F8FAFC" stroke="#0F766E" stroke-width="3"/>
+  <circle cx="478" cy="157" r="7" fill="#0F766E"/>
+  <circle cx="86" cy="338" r="34" stroke="#0F766E" stroke-opacity=".22"/>
+  <circle cx="478" cy="157" r="42" stroke="#102A43" stroke-opacity=".16"/>
+</svg>

@@ -1,0 +1,36 @@
+{
+  "name": "@m2k/server",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/index.js",
+    "typecheck": "tsc --noEmit",
+    "migrate": "tsx scripts/migrate.ts",
+    "setup:storage": "tsx scripts/setup-storage.ts",
+    "test:integration": "node --env-file-if-exists=.env --import tsx --test tests/integration.test.ts",
+    "check:readiness": "tsx scripts/check-readiness.ts"
+  },
+  "dependencies": {
+    "@m2k/contracts": "0.0.0",
+    "@supabase/supabase-js": "2.117.2",
+    "cors": "2.8.6",
+    "dotenv": "18.0.4",
+    "express": "5.2.1",
+    "express-rate-limit": "8.7.0",
+    "helmet": "8.3.0",
+    "multer": "2.4.0",
+    "nodemailer": "10.0.12",
+    "pg": "8.23.0",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@types/cors": "2.8.19",
+    "@types/express": "5.0.6",
+    "@types/multer": "2.3.0",
+    "@types/nodemailer": "8.0.2",
+    "@types/pg": "8.23.1"
+  }
+}

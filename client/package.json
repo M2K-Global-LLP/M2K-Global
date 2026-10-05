@@ -1,0 +1,47 @@
+{
+  "name": "@m2k/client",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npm run generate && react-router dev",
+    "generate": "tsx scripts/validate-content.ts && tsx scripts/generate-public-content.ts && tsx scripts/generate-job-catalog.ts",
+    "validate-content": "tsx scripts/validate-content.ts",
+    "build": "npm run generate && react-router build && tsx scripts/generate-seo-files.ts && npm run verify-prerender && npm run verify:core && npm run test:publication && npm run verify:secrets",
+    "typecheck": "react-router typegen && tsc --noEmit",
+    "verify-prerender": "tsx scripts/verify-prerender.ts",
+    "test:publication": "tsx --test tests/publication.test.ts",
+    "preview": "tsx scripts/preview.ts",
+    "test:e2e": "playwright test",
+    "verify:core": "tsx scripts/verify-core-pages.ts",
+    "verify:secrets": "tsx scripts/verify-client-secrets.ts",
+    "test:performance": "tsx scripts/audit-performance.ts"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "5.9.1",
+    "@m2k/contracts": "0.0.0",
+    "framer-motion": "13.4.4",
+    "lucide-react": "1.48.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-hook-form": "7.89.0",
+    "react-markdown": "10.1.0",
+    "react-router": "7.18.4",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.63.0",
+    "@react-router/dev": "7.18.4",
+    "@react-router/node": "7.18.4",
+    "@tailwindcss/vite": "4.3.3",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "cheerio": "1.2.0",
+    "chrome-launcher": "1.2.2",
+    "gray-matter": "4.0.3",
+    "lighthouse": "13.5.0",
+    "tailwindcss": "4.3.3",
+    "vite": "7.3.6"
+  }
+}

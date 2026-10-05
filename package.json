@@ -1,0 +1,45 @@
+{
+  "name": "m2k-global",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "client",
+    "server",
+    "packages/contracts"
+  ],
+  "engines": {
+    "node": ">=24.0.0 <25"
+  },
+  "packageManager": "npm@11.17.0",
+  "scripts": {
+    "dev": "npm run dev -w @m2k/client",
+    "dev:server": "npm run dev -w @m2k/server",
+    "lint": "eslint .",
+    "typecheck": "npm run build -w @m2k/contracts && npm run generate && npm run typecheck --workspaces --if-present",
+    "validate-content": "npm run validate-content -w @m2k/client",
+    "generate": "npm run generate -w @m2k/client",
+    "build": "npm run build -w @m2k/contracts && npm run build -w @m2k/client && npm run build -w @m2k/server",
+    "verify-prerender": "npm run verify-prerender -w @m2k/client",
+    "test": "tsx --test packages/contracts/tests/*.test.ts server/tests/*.test.ts client/tests/*.test.ts",
+    "test:publication": "npm run test:publication -w @m2k/client",
+    "preview": "npm run preview -w @m2k/client",
+    "test:e2e": "npm run test:e2e -w @m2k/client",
+    "test:publication-fixture": "tsx client/scripts/test-publication-fixture.ts",
+    "test:forms-e2e": "tsx client/scripts/test-forms-e2e.ts",
+    "test:integration": "npm run test:integration -w @m2k/server",
+    "test:readiness": "tsx client/scripts/test-readiness.ts"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/node": "24.19.0",
+    "eslint": "10.11.0",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.70.1",
+    "vite": "7.3.6"
+  },
+  "overrides": {
+    "vite": "7.3.6"
+  }
+}

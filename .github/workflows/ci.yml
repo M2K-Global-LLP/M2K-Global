@@ -1,0 +1,88 @@
+name: Production readiness
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+    inputs:
+      run_live_tests:
+        description: Run against the protected isolated Supabase test project
+        type: boolean
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: verification-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      SITE_URL: https://www.m2kglobal.com
+      SITE_INDEXABLE: 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npx tsc --noEmit
+      - run: npm run validate-content
+      - run: npm run build
+      - run: npm run verify-prerender
+      - run: npm test
+      - run: npm run test:publication
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      - run: npm run test:publication-fixture
+      - run: npm run test:readiness
+      - run: npm run test:publication
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: verification-reports
+          path: |
+            reports/
+            screenshots/
+            test-results/
+          retention-days: 14
+  live:
+    if: github.event_name == 'workflow_dispatch' && inputs.run_live_tests
+    needs: verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: supabase-test
+    env:
+      SITE_URL: https://www.m2kglobal.com
+      SITE_INDEXABLE: 'true'
+      DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
+      SUPABASE_URL: ${{ secrets.TEST_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.TEST_SUPABASE_SERVICE_ROLE_KEY }}
+      SUPABASE_STORAGE_BUCKET: resumes
+      DATABASE_SCHEMA: m2k
+      EMAIL_DRIVER: console
+      NODE_ENV: test
+      CLIENT_ORIGIN: http://localhost:5173
+      CONTACT_EMAIL: inquiry@m2kglobal.com
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build
+      - name: Require explicit test credentials
+        run: node -e "for (const name of ['DATABASE_URL','SUPABASE_URL','SUPABASE_SERVICE_ROLE_KEY']) if (!process.env[name]) throw new Error('Missing protected test credential '+name)"
+      - run: npm run test:integration
+      - run: npm run test:forms-e2e
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: live-test-reports
+          path: screenshots/phase4-playwright-results.json
+          retention-days: 7
