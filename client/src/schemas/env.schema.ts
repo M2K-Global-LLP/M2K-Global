@@ -15,3 +15,27 @@ export const buildEnvSchema = z.object({
   }
 });
 
+const productionOrigin = "https://www.m2kglobal.com";
+
+/**
+ * Vercel does not receive the ignored local .env.production file. Fail a
+ * production deployment early if its build variables are missing or wrong,
+ * rather than silently publishing preview SEO metadata.
+ */
+export function resolveBuildEnv(variables: Record<string, unknown>) {
+  const isVercelProduction = variables.VERCEL === "1" && variables.VERCEL_ENV === "production";
+  if (isVercelProduction) {
+    const missing = ["SITE_URL", "SITE_INDEXABLE"].filter((name) => typeof variables[name] !== "string" || variables[name] === "");
+    if (missing.length) throw new Error("Vercel production builds require these environment variables: " + missing.join(", "));
+  }
+
+  const parsed = buildEnvSchema.parse(variables);
+  if (isVercelProduction && parsed.SITE_URL !== productionOrigin) {
+    throw new Error("Vercel production SITE_URL must be " + productionOrigin + ".");
+  }
+  if (isVercelProduction && !parsed.SITE_INDEXABLE) {
+    throw new Error("Vercel production SITE_INDEXABLE must be true.");
+  }
+  return parsed;
+}
+
